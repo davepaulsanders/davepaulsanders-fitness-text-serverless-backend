@@ -1,0 +1,22 @@
+org: davepsandy
+app: fitness-text-backend
+service: fitness-text-backend
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  timeout: 30
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - http:
+          path: /
+          method: GET
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
