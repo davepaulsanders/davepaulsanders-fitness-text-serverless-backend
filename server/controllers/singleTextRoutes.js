@@ -14,11 +14,18 @@ router.post(
 
       if (messageSent) {
         //send message to client
-        selectedGroup.forEach((client) => {
-          singleText(message, client.phoneNumber);
-        });
+        try {
+          await Promise.all(
+            selectedGroup.forEach(async (client) => {
+              const text = await singleText(message, client.phoneNumber);
+              return text;
+            })
+          );
+          res.send(messageSent);
+        } catch (err) {
+          console.log(err);
+        }
       }
-      res.send(messageSent);
     } catch (err) {
       res.send(err);
     }

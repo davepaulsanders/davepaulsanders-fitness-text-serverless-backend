@@ -8,7 +8,6 @@ module.exports = function (client, messages) {
 
   // if there is a message for the day the client is currently on
   if (messages[daysElapsed - 1]) {
-
     // send them that particular message
     twilioClient.messages
       .create({
