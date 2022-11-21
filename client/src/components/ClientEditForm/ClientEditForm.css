@@ -1,0 +1,10 @@
+form {
+    background-color: rgb(214, 187, 117);
+    
+}
+.delete-client, .cancel-delete-client {
+    display: none;
+}
+.form-input {
+    border-bottom: 1px solid #000!important;
+}
